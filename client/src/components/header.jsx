@@ -7,8 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 function Header(){
-
-    const [productos,setProductos] = useState([]);
+    
+    const [productos,setProductos] = useState();
     const [busqueda,setBusqueda] = useState("")
 
     const palabraDigitada = (e)=> {  // Guardo la palabra del imput
@@ -20,7 +20,9 @@ function Header(){
         e.preventDefault();
 		fetch(`http://localhost:3001/api/items?q=:${busqueda}`)        
 		.then(response => response.json())
-		.then(data => {setProductos(data);});
+		.then(data => {
+            console.log(data)
+            setProductos(data);});
 	})
 
     useEffect(()=>{console.log(productos)},[productos])
@@ -43,7 +45,16 @@ function Header(){
                 </div>
             </header>
             <div className='resultados'>
-            
+                {
+                    productos.items  && productos.items.map((key , i) => {
+                        console.log(key)
+                        return(
+                            <div key={i}>
+                                <h2> {key.id} </h2>
+                            </div>
+                        )
+                    })
+                }
 
             </div>
             
