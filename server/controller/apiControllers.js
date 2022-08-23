@@ -1,8 +1,8 @@
 const fetch = require("node-fetch");
 const apiMainController ={
-    consulta : ((req, res)=> {
-        let resultConsulta = req.query.search;       
-        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=:${resultConsulta}`)
+    consulta : ((req, res)=> {        
+        let resultConsulta = req.query.q; 
+        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${resultConsulta}`)
         .then(consulta => consulta.json())
         .then(resultado =>{
             const data = JSON.parse(JSON.stringify(resultado));
@@ -14,6 +14,7 @@ const apiMainController ={
                     mostradorDeProducts.push(array[z]);
                 }                
             }
+
             let respuesta = {
                 autor: {
                     name: "Edwin Ivan",
@@ -27,8 +28,7 @@ const apiMainController ={
     }),
 
     consultaId : ((req, res) => { 
-        let varlorId = req.params.id;
-        
+        let varlorId = req.params.id;        
         fetch(`https://api.mercadolibre.com/items/${varlorId}`)
         .then(consulta => consulta.json())
         .then(resultado =>{ 

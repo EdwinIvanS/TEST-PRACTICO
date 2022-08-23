@@ -1,0 +1,138 @@
+:root{
+  --yellow :#fcda31;
+  --white : rgb(255, 255, 255);
+  --gray-claro: #ebebebaf;
+  --gray-oscruro:#f1efef;
+}
+
+body{ 
+  background-color: var(--gray-oscruro);
+  margin: 0px;
+  padding: 0px;
+}
+
+/*Contenedor principal seccion busqueda*/
+.nav-search{
+  background-color: var(--yellow);
+  display: flex;
+  padding: 18px;
+}
+
+/*contenedores secundarios seccion busqueda*/
+
+.nav-search-img{
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  width: 30%;
+}
+
+.nav-search-ford{
+  align-items: center;
+  display: flex;
+  width: 80%;
+}
+
+/*Logo principal*/
+
+.mercadoLibre-img{
+  width: 100px !important;;
+  padding-right: 20px;
+}
+
+/*Formulario*/
+
+.nav-search-f{
+  width: 90%;
+}
+
+.nav-search-input{
+  border: 1px solid var(--gray);
+  border-radius: 2px;
+  height: 25px;
+  width: 70% !important;
+}
+
+.nav-search-btn{
+  height: 25px;
+}
+
+button{
+  border: 1px solid var(--gray);
+  width: 35px;
+}
+
+button:hover {
+  background-color: var(--gray-oscruro);
+  cursor: pointer;
+}
+
+/******Cuerpo****/
+.contenainer-body-principal{
+  margin: 0 14% 0 14%;
+}
+
+.contenainer-body{
+  background-color: var(--white);
+  height: 1000px;          /*REVISAR SI ES NECESARIO*/
+  width: 100%;
+}
+
+
+
+
+
+
+/**************FOOTER**************/
+
+footer {
+  background-color: white;
+}
+
+.container{
+  display: flex;
+}
+
+.info-slide {
+  text-align: center;
+  padding: 40px 40px 10px 40px;
+}
+
+.img-container {
+  padding-bottom: 10px;
+}
+
+.fa-credit-card:hover::before {
+  color: #0022aa;
+}
+
+.fa-gift:hover::before {
+  /*color de los iconos del footer*/
+  color: #0022aa;
+}
+
+.fa-user-shield:hover::before {
+  color: #0022aa;
+}
+
+.titulo-footer {
+  color: #666;
+  font-family: 'roboto';
+  font-size: 16px;
+  font-weight: bold;
+  margin-block: auto;
+}
+
+.descripcion-footer {
+  color: #727171;
+  font-family: 'roboto';
+  margin-top: 1px;
+  padding-top: 1px;
+}
+
+.final-footer {
+  color: #727171;
+  margin-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 23px;
+}
