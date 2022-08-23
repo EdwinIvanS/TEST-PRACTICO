@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Section from "./section";
+import Nav from './nav';
 import logo from  '../assets/images/logo-mercadoLibre.png'
 import "bootstrap/dist/css/bootstrap.min.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -52,6 +53,7 @@ function Header(){
                     })
                 }
           
+            <Nav></Nav>
             
         </React.Fragment>       
     )
