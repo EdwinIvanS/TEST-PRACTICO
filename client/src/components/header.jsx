@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-//import Section from "./section";
-//import {Link, Route, Router} from 'react-router-dom';
+import Section from "./section";
 import logo from  '../assets/images/logo-mercadoLibre.png'
 import "bootstrap/dist/css/bootstrap.min.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,7 +7,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 function Header(){
     
-    const [productos,setProductos] = useState();
+    const [productos,setProductos] = useState([]);
     const [busqueda,setBusqueda] = useState("")
 
     const palabraDigitada = (e)=> {  // Guardo la palabra del imput
@@ -44,19 +43,15 @@ function Header(){
                     </div>                     
                 </div>
             </header>
-            <div className='resultados'>
+            
                 {
-                    productos.items  && productos.items.map((key , i) => {
-                        console.log(key)
-                        return(
-                            <div key={i}>
-                                <h2> {key.id} </h2>
-                            </div>
-                        )
+                productos.items  && productos.items.map((key , i) => {
+                console.log(key)
+                    return(
+                        <Section key={i} id={key.id} title={key.title} currency={key.price.currency} amount={key.price.amount} decimals={key.price.decimals} picture={key.picture} condition={key.condition} free_shipping={key.free_shipping} />                        )
                     })
                 }
-
-            </div>
+          
             
         </React.Fragment>       
     )

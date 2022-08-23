@@ -1,8 +1,8 @@
 import React from 'react';
 //import Footer from "./foother";
 
-function Section(){
-
+function Section(props){
+    const {id, title, currency, amount, decimals, picture, condition, free_shipping } = props;
     /*
     const [productos,setProductos] = useState([])
 
@@ -17,15 +17,22 @@ function Section(){
 		});
 	},[])
 */
-
     return(
         <React.Fragment>
         <section>        
-            <div class="contenainer-body-principal">
-                <div class="contaniner-ruta">
+            <div className="contenainer-body-principal">
+                <div className="contaniner-ruta">
                     <p>RUTA A PARAMETRIZAR   </p>
                 </div>
-                <div class="contenainer-body">
+                <div className="contenainer-body">
+                    <p className='valores'>{id}</p>
+                    <p className='valores'>{title}</p>
+                    <p className='valores'>{currency}</p>
+                    <p className='valores'>{amount}</p>
+                    <p className='valores'>{decimals}</p>
+                    <p className='valores'>{picture}</p>
+                    <p className='valores'>{condition}</p>
+                    <p className='valores'>{free_shipping}</p>
                 </div>
             </div>
         </section>
