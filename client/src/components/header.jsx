@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 //import Section from "./section";
 //import {Link, Route, Router} from 'react-router-dom';
 import logo from  '../assets/images/logo-mercadoLibre.png'
@@ -20,11 +20,10 @@ function Header(){
         e.preventDefault();
 		fetch(`http://localhost:3001/api/items?q=:${busqueda}`)        
 		.then(response => response.json())
-		.then(data => {
-			console.log(data);
-            setProductos(data);
-		});
+		.then(data => {setProductos(data);});
 	})
+
+    useEffect(()=>{console.log(productos)},[productos])
 
     return(
         <React.Fragment>
