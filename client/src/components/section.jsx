@@ -1,16 +1,11 @@
 import React from 'react';
 import { Link} from 'react-router-dom';
-//import Detalle from './detalle';
-
 
 function Section(props){
-    //const {id, title, currency, amount, decimals, picture, condition, free_shipping } = props;
     const {id, title, amount, picture } = props;
 
-    return(
-        
-        <section>  
-             
+    return(  
+        <section>              
             <div className="contenainer-body-principal">
                 <div className='container-section'> 
                     <div className="container-body">
@@ -31,7 +26,6 @@ function Section(props){
             </div>
             
         </section>
-        
     )
 
 }

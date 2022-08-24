@@ -6,7 +6,7 @@ import Detalle from './components/detalle';
 function App() {
   return (
       <BrowserRouter>
-          <Header></Header>
+          <Header/>
           <Routes>
             <Route path="/items/:id" exact={true} element={<Detalle/>} ></Route>
           </Routes>
