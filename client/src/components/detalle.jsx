@@ -1,24 +1,26 @@
-import React, {useState, useEffect} from 'react'
-import {useParams} from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 
 function Detalle(){
-    const {id} = useParams();    
-    console.log(id);
+    const {id} = useParams();
 
     const [detalleProducto , setPetalleProducto] = useState([]);
 
-    const searchProducto= (()=> {
+    useEffect(()=> {
 		fetch(`http://localhost:3001/api/items/${id}`)        
 		.then(response => response.json())
 		.then(data => {
-            console.log(data)
             setPetalleProducto(data);});
-	})
+	},[])
 
-    useEffect(()=>{console.log(detalleProducto)},[detalleProducto])
+    useEffect(()=>{        
+        console.log("AQUI ESTOY - EJECUTANDO LA API")
+        console.log(detalleProducto.items)},[detalleProducto])
 
     return(
-            <div className='Container-detalle-Produt'>
+        <React.Fragment>
+        <div className='Container-detalle-Produt'>
                 <div className='container-detalle-img-descripcion'>
                     <div className='container-img'>
 
@@ -35,6 +37,15 @@ function Detalle(){
                 </div>
             </div>
 
+        {
+            detalleProducto.items  && detalleProducto.items.map((key , i) => {
+            console.log(key)
+            return(
+                <div key={i}> id={key.id}, title={key.title}, currency={key.price.currency}, amount={key.price.amount}, decimals={key.price.decimals}, picture={key.picture}, condition={key.condition}, free_shipping={key.free_shipping}, sold_quantity={key.sold_quantity}, description={key.description}</div>                        
+                )
+            })
+        }
+        </React.Fragment>  
     )
 }
 

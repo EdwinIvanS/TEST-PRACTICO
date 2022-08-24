@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Section from "./section";
-//import { Link, Route, Routes } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import logo from  '../assets/images/logo-mercadoLibre.png'
 import "bootstrap/dist/css/bootstrap.min.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -32,7 +32,9 @@ function Header(){
             <header >
                 <div className="nav-search">
                     <div className="nav-search-img">
+                    <Link to="/" className='mercadoLibre-img'>
                         <img className="mercadoLibre-img" src={logo} alt="Logo de la empresa" width="300"/>
+                    </Link>
                     </div>
                     <div className="nav-search-ford">
                      <form className="nav-search-f" onSubmit={searchProducto} >
@@ -52,6 +54,7 @@ function Header(){
                         <Section key={i} id={key.id} title={key.title} currency={key.price.currency} amount={key.price.amount} decimals={key.price.decimals} picture={key.picture} condition={key.condition} free_shipping={key.free_shipping} />                        )
                     })
                 }   
+                
         </React.Fragment>       
     )
 }

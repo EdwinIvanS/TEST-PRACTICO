@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
+//import Detalle from './detalle';
 
 
 function Section(props){
@@ -28,7 +29,9 @@ function Section(props){
                     </div>
                 </div>
             </div>
+            
         </section>
+        
     )
 
 }

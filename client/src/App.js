@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes} from 'react-router-dom'
-import Detalle from './components/detalle';
 import Header from './components/header'
+import Detalle from './components/detalle';
 
 function App() {
   return (
       <BrowserRouter>
-        <Header></Header>
+          <Header></Header>
           <Routes>
-            <Route path='/items/:id' exact={true} component = {<Detalle/>} />
+            <Route path="/items/:id" exact={true} element={<Detalle/>} ></Route>
           </Routes>
       </BrowserRouter>  
   );
