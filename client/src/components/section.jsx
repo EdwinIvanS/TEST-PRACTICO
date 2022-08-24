@@ -1,5 +1,5 @@
 import React from 'react';
-import Detalle from './detalle';
+import { Link } from 'react-router-dom';
 
 
 function Section(props){
@@ -7,13 +7,16 @@ function Section(props){
     const {id, title, amount, picture } = props;
 
     return(
-        <React.Fragment>
-        <section>        
+        
+        <section>  
+             
             <div className="contenainer-body-principal">
                 <div className='container-section'> 
                     <div className="container-body">
                         <div className="section-imag">
-                            <img src={picture}/>
+                            <Link to={"/items/"+ id} className='section-imag'>
+                                <img src={picture}/>
+                            </Link>
                         </div>
                         <div className="section-descripcion">
                             <p className='letter-prince'>$  {amount}</p>
@@ -25,8 +28,7 @@ function Section(props){
                     </div>
                 </div>
             </div>
-        </section>    
-        </React.Fragment>
+        </section>
     )
 
 }

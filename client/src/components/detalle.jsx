@@ -18,7 +18,6 @@ function Detalle(){
     useEffect(()=>{console.log(detalleProducto)},[detalleProducto])
 
     return(
-        <React.Fragment>
             <div className='Container-detalle-Produt'>
                 <div className='container-detalle-img-descripcion'>
                     <div className='container-img'>
@@ -35,7 +34,6 @@ function Detalle(){
                     <button>Comprar</button>
                 </div>
             </div>
-        </React.Fragment>
 
     )
 }
