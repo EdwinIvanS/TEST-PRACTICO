@@ -43,7 +43,8 @@ function Header(){
                     </form>
                     </div>                     
                 </div>
-            </header>
+            </header>            
+            <Nav></Nav>
             
                 {
                 productos.items  && productos.items.map((key , i) => {
@@ -53,7 +54,6 @@ function Header(){
                     })
                 }
           
-            <Nav></Nav>
             
         </React.Fragment>       
     )

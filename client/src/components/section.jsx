@@ -1,5 +1,4 @@
 import React from 'react';
-import Nav from './nav';
 
 
 function Section(props){
@@ -24,17 +23,18 @@ function Section(props){
         
         <section>        
             <div className="contenainer-body-principal">
-                
-                <div className="contenainer-body">
-                    <div className="section-imag">
-                        <img src={picture}/>
-                    </div>
-                    <div className="section-descripcion">
-                        <p className='valores'>{amount}</p>
-                        <p className='valores'>{title}</p>
-                    </div>
-                    <div className="section-cliente">
-                        <p className='valores'>{id}</p>
+                <div className='container-section'> 
+                    <div className="container-body">
+                        <div className="section-imag">
+                            <img src={picture}/>
+                        </div>
+                        <div className="section-descripcion">
+                            <p className='letter-prince'>$  {amount}</p>
+                            <p className='letter-title'>{title}</p>
+                        </div>
+                        <div className="section-cliente">
+                            <p className='letter-inf'>{id}</p>
+                        </div>
                     </div>
                 </div>
             </div>

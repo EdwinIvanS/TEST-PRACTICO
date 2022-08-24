@@ -6,7 +6,7 @@
 }
 
 body{ 
-  background-color: var(--gray-oscruro);
+  background: var(--gray-oscruro);
   margin: 0px;
   padding: 0px;
 }
@@ -69,15 +69,61 @@ button:hover {
 
 /******Cuerpo****/
 .contenainer-body-principal{
-  margin: 0 14% 0 14%;
+  margin: 0 18% 0 18%;
 }
 
-.contenainer-body{
-  background-color: var(--white);
-  height: 1000px;          /*REVISAR SI ES NECESARIO*/
+.container-section{
+  border: 1px solid rgb(247, 247, 250); 
+  margin: 2px;
+}
+
+.container-body:hover {
+  box-shadow: 0px 0px 10px rgb(56, 56, 56);
+  cursor: pointer;
+}
+
+
+
+
+.container-body{
+  align-items: center;
+  background-color: var(--white);  
+  border: 1px solid;
+  border-color: var(--gray-claro);
+  border-radius: 5px;
+  display: flex;
+  padding: 8px;  
   width: 100%;
 }
 
+
+
+.section-imag{
+  width: 20%;
+}
+
+.section-descripcion{
+  padding: 10px;
+  width: 55%;
+}
+
+.section-descripcion .letter-title{
+  font-size: 15px;
+}
+
+.section-cliente{
+  width: 25%;
+}
+
+.section-cliente .letter-inf{
+  font-size: 10px;
+  text-align: center;
+}
+
+.section-imag img{
+  height: 100%;
+  width: 100%;
+}
 
 
 
@@ -117,7 +163,7 @@ footer {
 
 .titulo-footer {
   color: #666;
-  font-family: 'roboto';
+  font-family: 'Montserrat';
   font-size: 16px;
   font-weight: bold;
   margin-block: auto;
@@ -125,7 +171,7 @@ footer {
 
 .descripcion-footer {
   color: #727171;
-  font-family: 'roboto';
+  font-family: 'Montserrat';
   margin-top: 1px;
   padding-top: 1px;
 }
