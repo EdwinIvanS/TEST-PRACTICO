@@ -20,28 +20,26 @@ function Detalle(){
 
     return(
         <React.Fragment>
-        <div className='Container-detalle-Produt'>
-                <div className='container-detalle-img-descripcion'>
-                    <div className='container-img'>
-
-                    </div>
-                    <div className='container-descripcion'>
-
-                    </div>
-                </div>
-                <div className='container-detalle-titulo-precio'>
-                    <h5>valor</h5>
-                    <h3>valor</h3>
-                    <h1>valor</h1>
-                    <button>Comprar</button>
-                </div>
-            </div>
-
         {
             detalleProducto.items  && detalleProducto.items.map((key , i) => {
-            console.log(key)
-            return(
-                <div key={i}> id={key.id}, title={key.title}, currency={key.price.currency}, amount={key.price.amount}, decimals={key.price.decimals}, picture={key.picture}, condition={key.condition}, free_shipping={key.free_shipping}, sold_quantity={key.sold_quantity}, description={key.description}</div>                        
+                return(
+                <div  key={i} className='Container-detalle-Produt'>
+                    <div className='container-detalle-img-descripcion'>
+                        <div className='container-img'>
+                            <img src={key.picture}/>
+                        </div>
+                        <div className='container-descripcion'>
+                            <h2>Descripción del producto</h2>
+                            <p>{key.description}</p>
+                        </div>
+                    </div>
+                    <div className='container-detalle-titulo-precio'>
+                        <h5>{key.condition} {key.sold_quantity} Vendidas</h5>
+                        <h3>{key.title}</h3>
+                        <h1>{key.price.amount}</h1>
+                        <button>Comprar</button>
+                    </div>
+                </div>                                    
                 )
             })
         }
