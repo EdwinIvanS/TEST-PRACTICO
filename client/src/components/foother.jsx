@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+//import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 function Footer(){ 
     return(
@@ -18,7 +18,7 @@ function Footer(){
           </div>      
           <div className="info-slide">
             <div className="img-container">
-              <i className="fas fa-gift fa-3x" style="color:rgb(11, 11, 219);"></i>
+              <FontAwesomeIcon icon="fal fa-pager" />
             </div>
             <p className="titulo-footer">Envío gratis desde $ 2.500</p>
             <p className="descripcion-footer">
