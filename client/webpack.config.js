@@ -14,7 +14,8 @@ module.exports={
       "stream": false,
       "os": false,
       "path": false,
-      "fs": false
+      "fs": false,
+      "querystring": require.resolve("querystring-es3")
     }
   }
 }
