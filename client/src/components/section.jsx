@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link} from 'react-router-dom';
+import { Link} from 'react-router-dom'
 
 function Section(props){
     const {id, title, amount, picture } = props;
 
-    return(  
+    return(
+        <React.Fragment>    
         <section>              
             <div className="contenainer-body-principal">
                 <div className='container-section'> 
@@ -23,9 +24,9 @@ function Section(props){
                         </div>
                     </div>
                 </div>
-            </div>
-            
+            </div>            
         </section>
+        </React.Fragment> 
     )
 
 }

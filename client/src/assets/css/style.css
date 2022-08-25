@@ -67,8 +67,11 @@ button:hover {
   cursor: pointer;
 }
 
+.Breadcrumb{
+  background-color: var(--gray-oscruro);
+}
 /******Cuerpo****/
-.contenainer-body-principal{
+section{
   margin: 0 18% 0 18%;
 }
 

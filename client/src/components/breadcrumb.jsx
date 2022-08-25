@@ -1,11 +1,15 @@
 import React from 'react';
 
-function Breadcrumb(){
+
+function Breadcrumb(props){
+    const { Variable } = props;
+    console.log(Variable);
+
     return(
         <React.Fragment>
             <nav className='Breadcrumb'>
-                <h1> Links encadenado</h1>
-            </nav>
+            <h1>barra breadcrumb</h1>
+            </nav>            
         </React.Fragment>
     )
 }

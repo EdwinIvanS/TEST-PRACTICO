@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Header from './header';
 
 
 function Detalle(){
@@ -16,7 +17,8 @@ function Detalle(){
     useEffect(()=>{console.log(detalleProducto.items)},[detalleProducto])
 
     return(
-        <React.Fragment>
+        <React.Fragment>                  
+        <Header></Header> 
         {
             detalleProducto.items  && detalleProducto.items.map((key , i) => {
                 return(

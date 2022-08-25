@@ -5,6 +5,7 @@ import logo from  '../assets/images/logo-mercadoLibre.png'
 import "bootstrap/dist/css/bootstrap.min.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import Breadcrumb from './breadcrumb';
 
 function Header(){
     
@@ -38,20 +39,22 @@ function Header(){
                     </div>
                     <div className="nav-search-ford">
                      <form className="nav-search-f" onSubmit={searchProducto} >
-                        <input className="nav-search-input" placeholder="Nunca dejes de buscar" onChange={palabraDigitada}/>                         
-                        <button type="submit" className="nav-search-btn">                        
-                        <FontAwesomeIcon icon={faSearch} />             
-                        </button>
+                        <input className="nav-search-input" placeholder="Nunca dejes de buscar" onChange={palabraDigitada}/> 
+                            <button type="submit" className="nav-search-btn">                        
+                                <FontAwesomeIcon icon={faSearch} />             
+                            </button>
                     </form>
                     </div>                     
                 </div>
-            </header>          
-            
+            </header>   
+            <div>
+                <Breadcrumb/>
+            </div>            
                 {
-                productos.items  && productos.items.map((key , i) => {
-                console.log(key)
-                    return(
-                        <Section key={i} id={key.id} title={key.title} currency={key.price.currency} amount={key.price.amount} decimals={key.price.decimals} picture={key.picture} condition={key.condition} free_shipping={key.free_shipping} />                        )
+                productos.items  && productos.items.map((key , i) => {               
+                    return(                        
+                        <Section key={i} id={key.id} title={key.title} currency={key.price.currency} amount={key.price.amount} decimals={key.price.decimals} picture={key.picture} condition={key.condition} free_shipping={key.free_shipping} />
+                        )
                     })
                 }   
                 
