@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import Header from './components/header'
 import Detalle from './components/detalle';
-import Section from './components/section';
 
 function App() {
   return (

@@ -1,18 +1,17 @@
-import React from 'react';
-import { Link} from 'react-router-dom'
+import React from "react";
+import {Link} from "react-router-dom";
 
-function Section(props){
-    const {id, title, amount, picture } = props;
-
+function Products(props){
+    const {id, title, amount, picture, category} = props;
     return(
-        <React.Fragment>    
+        <React.Fragment>   
         <section>              
             <div className="contenainer-body-principal">
                 <div className='container-section'> 
                     <div className="container-body">
                         <div className="section-imag">
                             <Link to={"/items/"+ id} className='section-imag'>
-                                <img src={picture}/>
+                                <img src={picture} alt=""/>
                             </Link>
                         </div>
                         <div className="section-descripcion">
@@ -26,8 +25,10 @@ function Section(props){
                 </div>
             </div>            
         </section>
-        </React.Fragment> 
-    )
 
+        </React.Fragment> 
+
+    )
 }
-export default Section;
+
+export default Products;

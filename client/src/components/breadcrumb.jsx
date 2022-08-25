@@ -2,13 +2,17 @@ import React from 'react';
 
 
 function Breadcrumb(props){
-    const { Variable } = props;
-    console.log(Variable);
+    const { category } = props; 
+    console.log(category);
 
     return(
         <React.Fragment>
             <nav className='Breadcrumb'>
-            <h1>barra breadcrumb</h1>
+            {   category !== undefined ?
+                <a href='/'>{category}</a>
+                :
+                <h1>No hay elementos para mostrar</h1>
+            }
             </nav>            
         </React.Fragment>
     )
