@@ -1,0 +1,45 @@
+// nombre del archivo + propiedad  header_container
+/*Contenedor principal seccion busqueda*/
+.nav-search {
+    background-color: var(--yellow);
+    display: flex;
+    padding: 18px 18% 18px 18%;
+
+    .nav-search-img{
+        .mercadoLibre-img {
+            width: 100px !important;
+            padding-right: 20px;
+        }
+    }
+
+    .nav-search-ford {
+        align-items: center;
+        display: flex;
+        width: 80%;
+
+        .nav-search-f {
+            width: 90%;                
+
+                .nav-search-input {
+                    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255, 144, 0, 0.6);
+                    border: white;
+                    border-radius: 2px;
+                    height: 40px;
+                    padding-left: 15px;
+                    width: 90%;                                     
+                }
+
+                .nav-search-btn{
+                    height: 41px;
+                    border: 1px solid var(--gray);
+                    border-radius: 5px;
+                    width: 45px;
+                    cursor: pointer;
+                }
+
+                button:hover{
+                    background-color: var(--gray-oscuro);
+                }
+        }
+    }
+}

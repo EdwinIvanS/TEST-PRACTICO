@@ -30,7 +30,7 @@ function Header(){
                     </div>
                     <div className="nav-search-ford">
                      <form className="nav-search-f" onSubmit={searchProducto} >
-                        <input className="nav-search-input" placeholder="Nunca dejes de buscar" onChange={palabraDigitada}/> 
+                        <input type="search" className="nav-search-input" placeholder="    Nunca dejes de buscar" onChange={palabraDigitada}/> 
                             <button type="submit" className="nav-search-btn">                        
                                 <FontAwesomeIcon icon={faSearch} />             
                             </button>
@@ -41,9 +41,9 @@ function Header(){
 
             {
                 productos.items  && productos.items.map((key , i) => {               
-                    return(
+                    return(                   
                         <Content key={i} id={key.id} title={key.title} currency={key.price.currency} amount={key.price.amount} decimals={key.price.decimals} picture={key.picture} condition={key.condition} free_shipping={key.free_shipping} category={productos.categories}/>
-                     )
+                    )
                 })
             }
                 
