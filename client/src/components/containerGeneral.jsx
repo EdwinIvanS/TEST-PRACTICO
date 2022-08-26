@@ -32,7 +32,7 @@ function ContainerGeneral(){
             {             
                 categories ?
                 <Breadcrumb category={categories}/> :
-                <h1>Noa hay categorias para estos productos</h1>
+                <h1>No hay categorias para estos productos</h1>
             }
             { 
                 productos.items  && productos.items.map((key , i) => {               

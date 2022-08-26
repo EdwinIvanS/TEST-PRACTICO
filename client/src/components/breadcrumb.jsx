@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 function Breadcrumb(props){
     const { category } = props; 
     console.log(category);

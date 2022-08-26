@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from './header';
+import Breadcrumb from "./breadcrumb";
 
 
-function Detalle(props){
+function Detalle(){
     const {id} = useParams();
     const [detalleProducto , setPetalleProducto] = useState([]);
 
@@ -12,21 +13,22 @@ function Detalle(props){
 		.then(response => response.json())
 		.then(data => {
             setPetalleProducto(data);});
-	},[])
+	})
 
     useEffect(()=>{console.log(detalleProducto.items)},[detalleProducto])
 
     return(
-        <React.Fragment>  
+        <React.Fragment>        
         <Header/> 
+        <Breadcrumb></Breadcrumb> 
         {
             detalleProducto.items  && detalleProducto.items.map((key , i) => {
                 return(
                     <div className='Container'>
                         <div className="Container-detalle-producto1"></div>
                         <div className="Container-detalle-producto2">
-                            <div  key={i} className='Container-detalle-Produt'>
-                                <div className='container-detalle-img'>
+                            <div   className='Container-detalle-Produt'>
+                                <div key={i} className='container-detalle-img'>
                                     <div className='container-img'>
                                         <img src={key.picture} alt=""/>
                                     </div>
