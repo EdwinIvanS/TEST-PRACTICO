@@ -7,14 +7,9 @@ function Breadcrumb(props){
 
     return(
         <React.Fragment>
-            <nav className='Breadcrumb'>
-            {   
-                category !== undefined ?
-                <a href='/'>{category}</a>
-                :
-                <h1>No hay elementos para mostrar</h1>
-            }
-            </nav>            
+        <div className='breadcrumb'>
+            <p>{category}</p> 
+        </div>                               
         </React.Fragment>
     )
 }

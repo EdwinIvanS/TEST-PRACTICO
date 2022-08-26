@@ -1,5 +1,4 @@
 import React from "react";
-import Breadcrumb from "./breadcrumb";
 import SectionProducts from "./sectionProducts";
 
 function Content(props){
@@ -8,7 +7,6 @@ function Content(props){
         <div className="contenedores-body">
             <div className="Container-general">
                 <React.Fragment>
-                <Breadcrumb category={category}></Breadcrumb>
                     <SectionProducts id={id} title={title} amount={amount} picture={picture} category={category}/>
                 </React.Fragment>
             </div>

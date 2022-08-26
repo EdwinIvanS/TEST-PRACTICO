@@ -1,11 +1,11 @@
-.Breadcrumb {
+.breadcrumb {
     align-items: center;
     background-color: var(--gray-claro);
     display: flex;
-    height: 40px;
-    justify-content: space-around;
-    
-        a{
+    height: 50px;  
+    padding-left: 18%;
+        p{
+            color: var(--gray-letter);
             font-size: 12px;
         }
 }

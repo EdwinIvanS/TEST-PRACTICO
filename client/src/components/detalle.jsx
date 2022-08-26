@@ -42,7 +42,7 @@ function Detalle(props){
                                 </div>
                                 <div className='container-detalle-titulo-precio'>
                                     <p className='unidades-vendidas'>{key.condition} {key.sold_quantity} Vendidas</p>
-                                    <h6>{key.title}</h6>
+                                    <h6 className='titulo-product'>{key.title}</h6>
                                     <h2> $ {key.price.amount}</h2>
                                     <button>Comprar</button>
                                 </div>
