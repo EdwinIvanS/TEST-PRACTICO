@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import Header from './components/header'
 import Content from './components/content';
 import Detalle from './components/detalle';
+import NotFount from './components/not-fount';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
             <Route path="/" exact={true} element={<Header/>} ></Route>
             <Route path="/items" exact={true} element={<Content/>} ></Route>
             <Route path="/items/:id" exact={true} element={<Detalle/>} ></Route>
+            <Route path="" exact={true} element={<NotFount/>} ></Route>
           </Routes>
       </BrowserRouter>  
   );

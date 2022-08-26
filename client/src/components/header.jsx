@@ -39,12 +39,12 @@ function Header(){
                 </div>
             </header>
 
-            {
+            {   
                 productos.items  && productos.items.map((key , i) => {               
                     return(                   
                         <Content key={i} id={key.id} title={key.title} currency={key.price.currency} amount={key.price.amount} decimals={key.price.decimals} picture={key.picture} condition={key.condition} free_shipping={key.free_shipping} category={productos.categories}/>
                     )
-                })
+                })                
             }
                 
         </React.Fragment>       

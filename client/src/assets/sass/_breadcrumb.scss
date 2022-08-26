@@ -1,0 +1,10 @@
+.Breadcrumb {
+    align-items: center;
+    background-color: var(--gray-claro);
+    display: flex;
+    height: 40px;
+    justify-content: space-around;
+        a{
+            font-size: 12px;
+        }
+}

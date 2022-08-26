@@ -8,7 +8,7 @@ function Content(props){
         <div className="contenedores-body">
             <div className="Container-general">
                 <React.Fragment>
-                    {/*<Breadcrumb category={category}/>*/}
+                <Breadcrumb category={category}></Breadcrumb>
                     <SectionProducts id={id} title={title} amount={amount} picture={picture} category={category}/>
                 </React.Fragment>
             </div>
