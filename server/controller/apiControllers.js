@@ -39,7 +39,8 @@ const apiMainController ={
         .then(consulta => consulta.json())
         .then(resultado =>{ 
             let producto=[];
-            const data = JSON.parse(JSON.stringify(resultado));            
+            const data = JSON.parse(JSON.stringify(resultado));
+
             producto.push({id : data.id ,title : data.title, price : { currency : data.currency_id, amount : data.price, decimals : 0}, picture : data.secure_thumbnail, condition : data.condition, free_shipping : data.shipping?.free_shipping, sold_quantity : data.sold_quantity, descriptions : data.descriptions}); 
             
             let respuesta = {
@@ -47,6 +48,7 @@ const apiMainController ={
                     name: "Edwin Ivan",
                     lastname: "Saboya Echeverry"
                 },
+                categories:data.shipping.tags,
                 items: producto
             }
             res.json(respuesta);            

@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 function Products(props){
-    const {id, title, amount, picture, category} = props;
+    const {id, title, amount, picture} = props;
     return(
         <React.Fragment>
         <div className="contenainer-body-principal"> 

@@ -6,12 +6,18 @@ import Breadcrumb from "./breadcrumb";
 
 function Detalle(){
     const {id} = useParams();
-    const [detalleProducto , setPetalleProducto] = useState([]);
+    const [detalleProducto , setPetalleProducto] = useState([]);    
+    const [categories,setCategories] = useState([]);
 
     useEffect(()=> {
 		fetch(`http://localhost:3001/api/items/${id}`)        
 		.then(response => response.json())
 		.then(data => {
+            let containerCategory = [];
+            data.categories?.forEach(element => {
+            containerCategory.push(element.replace("_", " ") + " / ");            
+            });
+            setCategories(containerCategory);
             setPetalleProducto(data);});
 	})
 
@@ -20,7 +26,11 @@ function Detalle(){
     return(
         <React.Fragment>        
         <Header/> 
-        <Breadcrumb></Breadcrumb> 
+        {             
+            categories ?
+            <Breadcrumb category={categories}/> :
+            <h1>No hay categorias para estos productos</h1>
+        }
         {
             detalleProducto.items  && detalleProducto.items.map((key , i) => {
                 return(

@@ -23,16 +23,12 @@ function ContainerGeneral(){
             setProductos(data);});
 	})  
 
-    React.useEffect(()=>{},[])
-
     return(
         <React.Fragment>
         <Header></Header>
 
             {             
-                categories ?
-                <Breadcrumb category={categories}/> :
-                <h1>No hay categorias para estos productos</h1>
+                categories ? <Breadcrumb category={categories}/> : <h1>No hay categorias para estos productos</h1>
             }
             { 
                 productos.items  && productos.items.map((key , i) => {               

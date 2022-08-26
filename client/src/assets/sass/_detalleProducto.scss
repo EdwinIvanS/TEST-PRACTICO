@@ -1,3 +1,7 @@
+.breadcrumb {
+    padding-left: 0px;
+}
+
 .Container{
     display: flex;
     .Container-detalle-producto1{
@@ -19,7 +23,8 @@
                     width: 100%;
 
                     img{
-                        width: 100%;
+                        margin: 15px;
+                        width: 90%;
                     }
                 }
 
@@ -28,7 +33,7 @@
                         h6{
                             font-size: 15px;
                             margin: 0px;
-                            padding-top: 25px;
+                            padding-top: 15px;
                         }
                         h2{
                             font-size: 8px;
@@ -50,9 +55,6 @@
                 .titulo-product {
                     margin-top: 15px;
                     font-size: 13px;
-                }
-                p{
-
                 }
                 button {
                     border-radius: 5px;
