@@ -12,7 +12,7 @@ function App() {
             <Route path="/" exact={true} element={<Header/>} ></Route>
             <Route path="/items" exact={true} element={<Content/>} ></Route>
             <Route path="/items/:id" exact={true} element={<Detalle/>} ></Route>
-            <Route path="" exact={true} element={<NotFount/>} ></Route>
+            <Route path="/items/notFount" exact={true} element={<NotFount/>} ></Route>
           </Routes>
       </BrowserRouter>  
   );
