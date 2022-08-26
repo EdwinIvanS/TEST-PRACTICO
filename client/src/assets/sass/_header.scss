@@ -1,5 +1,9 @@
 // nombre del archivo + propiedad  header_container
 /*Contenedor principal seccion busqueda*/
+body{
+    margin: 0px;
+}
+
 .nav-search {
     background-color: var(--yellow);
     display: flex;
