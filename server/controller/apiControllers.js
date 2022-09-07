@@ -1,8 +1,8 @@
 const fetch = require("node-fetch");
 const apiMainController ={
-    consulta : ( (req, res)=> {        
+    consulta : ( async (req, res)=> {        
         let consultaProducto = req.query.q; 
-        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${consultaProducto}`)        
+        await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${consultaProducto}`)        
         .then(consulta => consulta.json())
         .then(products =>{
             let categories =[];

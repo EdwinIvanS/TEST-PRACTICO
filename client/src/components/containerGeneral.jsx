@@ -15,13 +15,15 @@ function ContainerGeneral(){
         fetch(`http://localhost:3001/api/items?q=:${searchCadena}`)        
         .then(response => response.json())
         .then(data =>{ 
+            console.log(data);
             let containerCategory = [];
             data.categories?.forEach(element => {
                 containerCategory.push(element + " / ");                       
             });             
             setCategories(containerCategory);
-            setProductos(data);});
-	})
+            setProductos(data);
+        });
+	},[productos])
 
     return(
         <React.Fragment>
