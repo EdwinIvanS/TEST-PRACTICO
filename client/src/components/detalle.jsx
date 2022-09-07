@@ -15,7 +15,7 @@ function Detalle(){
 		.then(data => {
             let containerCategory = [];
             data.categories?.forEach(element => {
-                containerCategory.push(element.replace("_", " ") + " / ");            
+                containerCategory.push(element + " / ");            
             });
             setCategories(containerCategory);
             setPetalleProducto([data]);});

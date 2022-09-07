@@ -14,9 +14,9 @@ function Header(){
             <header >
                 <div className="nav-search">
                     <div className="nav-search-img">
-                    <Link to="/" className='mercadoLibre-img'>
-                        <img className="mercadoLibre-img" src={logo} alt="Logo de la empresa" width="300"/>
-                    </Link>
+                        <Link to="/" className='mercadoLibre-img'>
+                            <img className="mercadoLibre-img" src={logo} alt="Logo de la empresa" width="300"/>
+                        </Link>
                     </div>
                     <div className="nav-search-ford">
                      <form className="nav-search-f">

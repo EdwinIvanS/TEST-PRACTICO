@@ -7,7 +7,7 @@ const apiMainController ={
         .then(products =>{
             let categories =[];
             let categorie = products.filters[0]?.values[0].path_from_root;
-            categorie?.map((element, i)=>{ categories.push(element.name);})
+            categorie?.map((element)=>{ categories.push(element.name);})
 
             products = products.results.map((product, i) => {
                 return {
