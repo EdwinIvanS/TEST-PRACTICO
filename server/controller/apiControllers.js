@@ -1,59 +1,88 @@
 const fetch = require("node-fetch");
 const apiMainController ={
-    consulta : ((req, res)=> {        
-        let resultConsulta = req.query.q; 
-        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${resultConsulta}`)
+    consulta : ( (req, res)=> {        
+        let consultaProducto = req.query.q; 
+        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${consultaProducto}`)        
         .then(consulta => consulta.json())
-        .then(resultado =>{
-            const data = JSON.parse(JSON.stringify(resultado));
-            let array=[], arrayCategory="" , mostradorDeProducts=[] , category=[];
+        .then(products =>{
+            let categories =[];
+            let categorie = products.filters[0]?.values[0].path_from_root;
+            categorie?.map((element, i)=>{ categories.push(element.name);})
 
-            for (i of data.results) { category={ category: i.seller.tags}}; 
+            products = products.results.map((product, i) => {
+                return {
+                    id: product.id,
+                    title: product.title,
+                    price: {
+                        currency: product.currency_id,
+                        amount: product.price,
+                        decimals : product.prices.prices[0].regular_amount
+                    },
+                    picture: product.thumbnail,
+                    condition: product.condition,
+                    free_shipping: product.shipping.free_shipping
+                }
+            })
 
-            for (let i = 0; i < 1; i++) {
-                for (let z = 0; z < 1; z++) { arrayCategory=(category.category);}                
-            }
-
-            for (i of data.results) { array.push({ id : i.id ,title : i.title, price : { currency : i.prices.prices[0].currency_id, amount : i.prices.prices[0].amount, decimals : i.prices.prices[0].regular_amount}, picture : i.thumbnail, condition : i.condition, free_shipping : i.shipping.free_shipping})};                 
-            
-            for (let i = 0; i < 1; i++) { 
-                for (let z = 0; z < 4; z++) { mostradorDeProducts.push(array[z]);}                
-            }
-
-            let respuesta = {
+            res.status(200).json({
                 autor: {
                     name: "Edwin Ivan",
                     lastname: "Saboya Echeverry"
                 },
-                categories: arrayCategory,
-                items: mostradorDeProducts
-            }
-            res.json(respuesta);
+                categories,
+                items: products
+            })   
         })
+        .catch((error)=>{
+            console.log(error);
+        });           
         
     }),
 
-    consultaId : ((req, res) => { 
-        let varlorId = req.params.id;        
-        fetch(`https://api.mercadolibre.com/items/${varlorId}`)
-        .then(consulta => consulta.json())
-        .then(resultado =>{ 
-            let producto=[];
-            const data = JSON.parse(JSON.stringify(resultado));
+    consultaId : async (req, res) => {
+        let id = req.params.id;
+        const url = `https://api.mercadolibre.com/items/${id}`;
+        const urlDesc = `https://api.mercadolibre.com/items/${id}/description`;
+        
+        try {
+            let response = await fetch(url);
+            let product = await response.json();
 
-            producto.push({id : data.id ,title : data.title, price : { currency : data.currency_id, amount : data.price, decimals : 0}, picture : data.secure_thumbnail, condition : data.condition, free_shipping : data.shipping?.free_shipping, sold_quantity : data.sold_quantity, descriptions : data.descriptions}); 
+            let response2 = await fetch(urlDesc);
+            let description = await response2.json();
+
+            const urlcategoty = `https://api.mercadolibre.com/categories/${product.category_id}`;
+            let response3 = await fetch(urlcategoty);
+            let categories = await response3.json();
+            categories = categories.path_from_root;
+            categories = categories?.map(category => category.name)
             
-            let respuesta = {
-                autor: {
+            product = {
+                id: product.id,
+                title: product.title,
+                price: {
+                    currency: product.currency_id,
+                    amount: product.price,
+                    decimals: 0
+                },
+                picture: product.thumbnail,
+                condition: product.condition,
+                free_shipping: product.shipping.free_shipping,
+                sold_quantity: product.sold_quantity,
+                description: description.plain_text,
+            };
+            res.status(200).json({
+                author: {
                     name: "Edwin Ivan",
                     lastname: "Saboya Echeverry"
                 },
-                categories:data.shipping.tags,
-                items: producto
-            }
-            res.json(respuesta);            
-        })
-    })
+                categories,
+                item: product,
+            })     
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
 module.exports = apiMainController;

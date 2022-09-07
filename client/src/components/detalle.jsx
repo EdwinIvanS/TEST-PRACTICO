@@ -15,24 +15,19 @@ function Detalle(){
 		.then(data => {
             let containerCategory = [];
             data.categories?.forEach(element => {
-            containerCategory.push(element.replace("_", " ") + " / ");            
+                containerCategory.push(element.replace("_", " ") + " / ");            
             });
             setCategories(containerCategory);
-            setPetalleProducto(data);});
+            setPetalleProducto([data]);});
 	})
-
-    useEffect(()=>{console.log(detalleProducto.items)},[detalleProducto])
 
     return(
         <React.Fragment>        
         <Header/> 
-        {             
-            categories ?
-            <Breadcrumb category={categories}/> :
-            <h1>No hay categorias para estos productos</h1>
-        }
+        <Breadcrumb category={categories}/> 
+
         {
-            detalleProducto.items  && detalleProducto.items.map((key , i) => {
+            detalleProducto[0] !==''  && detalleProducto.map((key , i) => {
                 return(
                     <div className='Container'>
                         <div className="Container-detalle-producto1"></div>
@@ -40,22 +35,17 @@ function Detalle(){
                             <div   className='Container-detalle-Produt'>
                                 <div key={i} className='container-detalle-img'>
                                     <div className='container-img'>
-                                        <img src={key.picture} alt=""/>
+                                        <img src={key.item.picture} alt=""/>
                                     </div>
                                     <div className='container-detalle-descripcion'>
                                         <h6>Descripción del producto</h6>
-                                        {
-                                            key.description ?
-                                            <p>{key.description}</p>
-                                            :
-                                            <p>It only takes a minute tod sign up and our free starter tier is extremely generous. If you have any questions, our support team wold be happy to help you.</p>
-                                        }
+                                        <p>{key.item.description}</p>
                                     </div>
                                 </div>
                                 <div className='container-detalle-titulo-precio'>
-                                    <p className='unidades-vendidas'>{key.condition} {key.sold_quantity} Vendidas</p>
-                                    <h6 className='titulo-product'>{key.title}</h6>
-                                    <h2> $ {key.price.amount}</h2>
+                                    <p className='unidades-vendidas'>{key.item.condition} {key.item.sold_quantity} Vendidas</p>
+                                    <h6 className='titulo-product'>{key.item.title}</h6>
+                                    <h2> $ {key.item.price.amount}</h2>
                                     <button>Comprar</button>
                                 </div>
                             </div>
