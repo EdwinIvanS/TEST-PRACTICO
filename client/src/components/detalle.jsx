@@ -18,7 +18,9 @@ function Detalle(){
                 containerCategory.push(element + " / ");            
             });
             setCategories(containerCategory);
-            setPetalleProducto([data]);});
+            setPetalleProducto([data]);
+        })
+        .catch(error => console.log(error));  
 	})
 
     return(

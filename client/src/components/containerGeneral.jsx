@@ -6,11 +6,12 @@ import Breadcrumb from "./breadcrumb";
 
 
 function ContainerGeneral(){
+
     const valorBuscado = new URLSearchParams(useLocation().search);
     const searchCadena = valorBuscado.toString().replace("search=","");
     const [productos,setProductos] = useState([]);
     const [categories,setCategories] = useState([]);
-
+    
     useEffect(()=>{
         fetch(`http://localhost:3001/api/items?q=:${searchCadena}`)        
         .then(response => response.json())
@@ -21,8 +22,9 @@ function ContainerGeneral(){
             });             
             setCategories(containerCategory);
             setProductos(data);
-        });
-	},[productos])
+        })
+        .catch(error => console.log(error));
+	},[searchCadena])
 
     return(
         <React.Fragment>

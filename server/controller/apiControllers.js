@@ -1,12 +1,11 @@
 const fetch = require("node-fetch");
 const apiMainController ={
-    consulta : async(req, res)=> {        
+    consulta : async(req, res)=> {      
         let consultaProducto = req.query.q; 
         const url = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${consultaProducto}`)        
         .then(consulta => consulta.json())
         .then(products =>{
-            let categories =[];
-            let productos = [];
+            let categories =[], productos = [];
             let categorie = products.filters[0]?.values[0].path_from_root;
             categorie?.map((element)=>{ categories.push(element.name);})
 
@@ -36,9 +35,7 @@ const apiMainController ={
                 items: productos
             })   
         })
-        .catch((error)=>{
-            console.log(error);
-        });           
+        .catch(error => console.log(error));           
         
     },
 
