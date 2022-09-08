@@ -29,11 +29,11 @@ function Detalle(){
         {
             detalleProducto[0] !==''  && detalleProducto.map((key , i) => {
                 return(
-                    <div className='Container'>
+                    <div key={key.id + i} className='Container'>
                         <div className="Container-detalle-producto1"></div>
                         <div className="Container-detalle-producto2">
-                            <div   className='Container-detalle-Produt'>
-                                <div key={i} className='container-detalle-img'>
+                            <div  className='Container-detalle-Produt'>
+                                <div  className='container-detalle-img'>
                                     <div className='container-img'>
                                         <img src={key.item.picture} alt=""/>
                                     </div>

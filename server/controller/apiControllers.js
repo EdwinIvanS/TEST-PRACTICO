@@ -1,8 +1,8 @@
 const fetch = require("node-fetch");
 const apiMainController ={
-    consulta : ( async (req, res)=> {        
+    consulta : async(req, res)=> {        
         let consultaProducto = req.query.q; 
-        await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${consultaProducto}`)        
+        const url = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${consultaProducto}`)        
         .then(consulta => consulta.json())
         .then(products =>{
             let categories =[];
@@ -40,7 +40,7 @@ const apiMainController ={
             console.log(error);
         });           
         
-    }),
+    },
 
     consultaId : async (req, res) => {
         let id = req.params.id;
