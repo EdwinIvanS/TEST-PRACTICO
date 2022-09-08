@@ -1,9 +1,8 @@
 import React, { useState , useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from './header';
-import Content  from './content'
+import SectionProducts from "./sectionProducts";
 import Breadcrumb from "./breadcrumb";
-
 
 function ContainerGeneral(){
 
@@ -33,13 +32,12 @@ function ContainerGeneral(){
             { 
                 productos.items  && productos.items.map( (key , i) => {     
                     return(                   
-                        <Content key={i} id={key.id} title={key.title} currency={key.price.currency} amount={key.price.amount} decimals={key.price.decimals} picture={key.picture} condition={key.condition} free_shipping={key.free_shipping} category={productos.categories}/>
+                        <SectionProducts key={i} id={key.id} title={key.title} currency={key.price.currency} amount={key.price.amount} decimals={key.price.decimals} picture={key.picture} condition={key.condition} free_shipping={key.free_shipping} category={productos.categories}/>
                     )
                 })
             } 
         </React.Fragment>        
     )          
 }
-
 
 export default ContainerGeneral;
