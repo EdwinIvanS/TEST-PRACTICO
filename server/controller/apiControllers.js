@@ -6,21 +6,24 @@ const apiMainController ={
         .then(consulta => consulta.json())
         .then(products =>{
             let categories =[];
+            let productos = [];
             let categorie = products.filters[0]?.values[0].path_from_root;
             categorie?.map((element)=>{ categories.push(element.name);})
 
             products = products.results.map((product, i) => {
-                return {
-                    id: product.id,
-                    title: product.title,
-                    price: {
-                        currency: product.currency_id,
-                        amount: product.price,
-                        decimals : product.prices.prices[0].regular_amount
-                    },
-                    picture: product.thumbnail,
-                    condition: product.condition,
-                    free_shipping: product.shipping.free_shipping
+                if(i<4){
+                    productos.push({
+                        id: product.id,
+                        title: product.title,
+                        price: {
+                            currency: product.currency_id,
+                            amount: product.price,
+                            decimals : product.prices.prices[0].regular_amount
+                        },
+                        picture: product.thumbnail,
+                        condition: product.condition,
+                        free_shipping: product.shipping.free_shipping
+                    })
                 }
             })
 
@@ -30,7 +33,7 @@ const apiMainController ={
                     lastname: "Saboya Echeverry"
                 },
                 categories,
-                items: products
+                items: productos
             })   
         })
         .catch((error)=>{

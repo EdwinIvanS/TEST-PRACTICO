@@ -6,7 +6,6 @@ function Products(props){
     return(
         <React.Fragment>
         <div className="contenainer-body-principal"> 
-            <div className="contenainer-products1"></div>
                 <div className="contenainer-products-principal">
                     <div className="section-imag">
                         <Link to={"/items/"+ id} className='section-imag'>
@@ -20,8 +19,7 @@ function Products(props){
                     <div className="section-cliente">
                         <p className='letter-inf'>{id}</p>
                     </div>
-                </div>
-            <div className="contenainer-products2"></div>            
+                </div>          
         </div>
         </React.Fragment> 
     )
