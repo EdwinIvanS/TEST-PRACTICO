@@ -1,27 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 import Header from './header';
 import Breadcrumb from "./breadcrumb";
-
+import { UseFetchProduct } from './hooks/UseFetchProduct';
 
 function Detalle(){
-    const {id} = useParams();
-    const [detalleProducto , setPetalleProducto] = useState([]);    
-    const [categories,setCategories] = useState([]);
-
-    useEffect(()=> {
-		fetch(`http://localhost:3001/api/items/${id}`)        
-		.then(response => response.json())
-		.then(data => {
-            let containerCategory = [];
-            data.categories?.forEach(element => {
-                containerCategory.push(element + " / ");            
-            });
-            setCategories(containerCategory);
-            setPetalleProducto([data]);
-        })
-        .catch(error => console.log(error));  
-	})
+    const { detalleProducto, categories , isFetching } = UseFetchProduct();    
+    if(isFetching) return console.log("Loadding Detail Product........")
 
     return(
         <React.Fragment>        

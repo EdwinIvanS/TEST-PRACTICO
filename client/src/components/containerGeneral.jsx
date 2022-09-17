@@ -1,29 +1,12 @@
-import React, { useState , useEffect} from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import Header from './header';
 import SectionProducts from "./sectionProducts";
 import Breadcrumb from "./breadcrumb";
+import { UseFetchProductsAll } from './hooks/UseFetchProductsAll';
 
 function ContainerGeneral(){
-
-    const valorBuscado = new URLSearchParams(useLocation().search);
-    const searchCadena = valorBuscado.toString().replace("search=","");
-    const [productos,setProductos] = useState([]);
-    const [categories,setCategories] = useState([]);
-    
-    useEffect(()=>{
-        fetch(`http://localhost:3001/api/items?q=:${searchCadena}`)        
-        .then(response => response.json())
-        .then(data =>{ 
-            let containerCategory = [];
-            data.categories?.forEach(element => {
-                containerCategory.push(element + " / ");                       
-            });             
-            setCategories(containerCategory);
-            setProductos(data);
-        })
-        .catch(error => console.log(error));
-	},[searchCadena])
+    const { productos, categories , isFetching} = UseFetchProductsAll();
+    if(isFetching) return console.log("Loadding Products........")
 
     return(
         <React.Fragment>
