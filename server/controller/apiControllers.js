@@ -1,10 +1,11 @@
 const fetch = require("node-fetch");
 const apiMainController ={
-    consulta : async(req, res)=> {      
-        let consultaProducto = req.query.q; 
-        const url = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${consultaProducto}`)        
-        .then(consulta => consulta.json())
-        .then(products =>{
+    consulta : async(req, res)=> {
+        try {
+            let consultaProducto = req.query.q; 
+            const url = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${consultaProducto}`)        
+            .then(consulta => consulta.json())
+            .then(products =>{
             let categories =[], productos = [];
             let categorie = products.filters[0]?.values[0].path_from_root;
             categorie?.map((element)=>{ categories.push(element.name);})
@@ -35,8 +36,12 @@ const apiMainController ={
                 items: productos
             })   
         })
-        .catch(error => console.log(error));           
-        
+        .catch(error => console.log(error)); 
+        } catch (error) {
+            return res.status(500).json({
+                message: 'Somethin goes wrong'
+            })
+        }        
     },
 
     consultaId : async (req, res) => {
@@ -80,7 +85,9 @@ const apiMainController ={
                 item: product,
             })     
         } catch (error) {
-            console.log(error);
+            return res.status(500).json({
+                message: 'Somethin goes wrong'
+            })
         }
     }
 }
