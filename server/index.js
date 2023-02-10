@@ -15,8 +15,8 @@ app.use( ( req, res, next ) => {
 app.use('/api', indexApiRouter);
 
 // correr servidor 
-app.listen(3001, ()=>{
-    console.log('server on port 3001');
-})
+app.listen(3001, () => {
+  console.log("server on port 3001");
+});
 
 module.exports = app;

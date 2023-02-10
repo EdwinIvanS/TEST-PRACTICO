@@ -7,7 +7,7 @@ const apiMainController ={
             .then(consulta => consulta.json())
             .then(products =>{
             let categories =[], productos = [];
-            let categorie = products.filters[0]?.values[0].path_from_root;
+            let categorie = products.available_filters[0]?.values;
             categorie?.map((element)=>{ categories.push(element.name);})
 
             products = products.results.map((product, i) => {
@@ -18,7 +18,7 @@ const apiMainController ={
                         price: {
                             currency: product.currency_id,
                             amount: product.price,
-                            decimals : product.prices.prices[0].regular_amount
+                            decimals : 00
                         },
                         picture: product.thumbnail,
                         condition: product.condition,
@@ -46,14 +46,11 @@ const apiMainController ={
 
     consultaId : async (req, res) => {
         let id = req.params.id;
-        const url = `https://api.mercadolibre.com/items/${id}`;
-        const urlDesc = `https://api.mercadolibre.com/items/${id}/description`;
-        
         try {
-            let response = await fetch(url);
+            let response = await fetch(`https://api.mercadolibre.com/items/${id}`);
             let product = await response.json();
 
-            let response2 = await fetch(urlDesc);
+            let response2 = await fetch(`https://api.mercadolibre.com/items/${id}/description`);
             let description = await response2.json();
 
             const urlcategoty = `https://api.mercadolibre.com/categories/${product.category_id}`;
