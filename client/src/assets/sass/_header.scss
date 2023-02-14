@@ -27,10 +27,11 @@ body{
         width: 80%;
 
         .nav-search-f {
+            display: flex;
             width: 90%;                
-
+            position: relative;
                 .nav-search-input {
-                    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255, 144, 0, 0.6);
+                    //box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255, 144, 0, 0.6);
                     border: white;
                     border-radius: 2px;
                     height: 40px;
@@ -38,16 +39,25 @@ body{
                     width: 90%;                                     
                 }
 
-                .nav-search-btn{
-                    height: 41px;
-                    border: 1px solid var(--gray);
-                    border-radius: 5px;
-                    width: 45px;
-                    cursor: pointer;
+                input:focus-visible {
+                    outline: 2px solid rgba(29, 28, 28, 0.075);
+                    box-shadow: 0 4px 4px rgba(19, 18, 18, 0.075);
                 }
 
-                button:hover{
-                    background-color: var(--gray-oscuro);
+                .nav-search-btn{
+                    background-color: white;
+                    height: 40px;
+                    border: 1px solid var(--gray);
+                    border-left-style:groove;
+                    border-left-color: white;
+                    border-radius: 0px 5px 5px 0px;
+                    width: 45px;
+                    cursor: pointer;
+                    .icon-search{
+                        position: relative;    
+                        top: 4px;      
+                        color:rgb(129, 126, 126) ;        
+                    }
                 }
         }
     }

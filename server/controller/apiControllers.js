@@ -8,7 +8,16 @@ const apiMainController ={
             .then(products =>{
             let categories =[], productos = [];
             let categorie = products.available_filters[0]?.values;
-            categorie?.map((element)=>{ categories.push(element.name);})
+            let count = 0;
+
+            categorie?.map((element)=>{                
+                if (count < 5) {
+                  categories.push(element.name);
+                  count++;
+                }
+            })
+
+            //console.log(categories);
 
             products = products.results.map((product, i) => {
                 if(i<4){
